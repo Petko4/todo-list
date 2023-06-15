@@ -22,17 +22,17 @@ function App() {
     );
   };
 
-  const changeTaskIsChecked = (id: string): void => {
-    setTasks((prevState: Task[]) => {
-      const updatedTasks = [...prevState];
-      const foundTask = updatedTasks.find((task: Task) => task.id === id);
+  // const changeTaskIsChecked = (id: string): void => {
+  //   setTasks((prevState: Task[]) => {
+  //     const updatedTasks = [...prevState];
+  //     const foundTask = updatedTasks.find((task: Task) => task.id === id);
 
-      if (foundTask) {
-        foundTask.isChecked = !foundTask.isChecked;
-      }
-      return updatedTasks;
-    });
-  };
+  //     if (foundTask) {
+  //       foundTask.isChecked = !foundTask.isChecked;
+  //     }
+  //     return updatedTasks;
+  //   });
+  // };
 
   return (
     <div className="App">
