@@ -1,4 +1,6 @@
 import "./App.css";
+import { TaskItem } from "./components/TaskItem/TaskItem";
+import TaskList from "./components/TaskList/TaskList";
 import TextInput from "./components/TextInput/TextInput";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Task } from "./types/interfaces";
@@ -22,29 +24,31 @@ function App() {
     );
   };
 
-  // const changeTaskIsChecked = (id: string): void => {
-  //   setTasks((prevState: Task[]) => {
-  //     const updatedTasks = [...prevState];
-  //     const foundTask = updatedTasks.find((task: Task) => task.id === id);
+  const changeTaskIsChecked = (id: string): void => {
+    setTasks((prevState: Task[]) => {
+      const updatedTasks = [...prevState];
+      const foundTask = updatedTasks.find((task: Task) => task.id === id);
 
-  //     if (foundTask) {
-  //       foundTask.isChecked = !foundTask.isChecked;
-  //     }
-  //     return updatedTasks;
-  //   });
-  // };
+      if (foundTask) {
+        foundTask.isChecked = !foundTask.isChecked;
+      }
+      return updatedTasks;
+    });
+  };
 
   return (
     <div className="App">
       <TextInput onSubmit={addNewTask} />
-      {/* TEST of localstorage */}
-      <ul>
+      <TaskList>
         {tasks.map((task) => (
-          <li key={task.id} onClick={() => removeTask(task.id)}>
-            {task.text}
-          </li>
+          <TaskItem
+            removeItem={removeTask}
+            checkItem={changeTaskIsChecked}
+            key={task.id}
+            {...task}
+          />
         ))}
-      </ul>
+      </TaskList>
     </div>
   );
 }

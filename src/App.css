@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;700&display=swap");
+:root {
+  --green: #36df20;
+  --red: #ff1403;
+  --dark-red: #a30808e5;
+}
 
 * {
   box-sizing: border-box;
@@ -28,4 +33,12 @@ body {
   .App {
     width: 100%;
   }
+}
+
+.bg-color-grey {
+  background-color: rgba(172, 166, 166, 0.521) !important;
+}
+
+.striked {
+  text-decoration: line-through;
 }
